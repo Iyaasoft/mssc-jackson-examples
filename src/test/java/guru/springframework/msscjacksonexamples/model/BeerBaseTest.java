@@ -1,11 +1,17 @@
 package guru.springframework.msscjacksonexamples.model;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.math.BigDecimal;
 import java.util.UUID;
 
 public class BeerBaseTest {
 
-    public BeerDto getBeerDto() {
+    @Autowired
+    protected ObjectMapper mapper;
+
+    protected BeerDto getBeerDto() {
         return BeerDto.builder().id(UUID.randomUUID())
                 .beerName("Red Stripe")
                 .beerStyle("Larger")
